@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>God of Prompt - The Biggest AI Prompt Library | ChatGPT & Midjourney Prompts</title>
+    <meta name="description" content="Discover the best AI prompts for ChatGPT & Midjourney. Our curated library helps supercharge your business productivity with optimized prompts for marketing, sales, writing & more.">
+    <meta name="keywords" content="AI prompts, ChatGPT prompts, Midjourney prompts, AI prompt library, business prompts, marketing prompts">
+    <meta property="og:title" content="God of Prompt - The Biggest AI Prompt Library">
+    <meta property="og:description" content="Discover the best AI prompts for ChatGPT & Midjourney to supercharge your business productivity.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://godofprompt.com">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="God of Prompt - The Biggest AI Prompt Library">
+    <meta name="twitter:description" content="Discover the best AI prompts for ChatGPT & Midjourney to supercharge your business productivity.">
+    <link rel="canonical" href="https://godofprompt.com">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#f39c12',
+                        secondary: '#e67e22',
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal.is-active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal__content {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            max-width: 400px;
+            width: 90%;
+            position: relative;
+            margin: auto;
+            transform: translateY(-20px);
+            transition: transform 0.3s ease;
+        }
+
+        .modal.is-active .modal__content {
+            transform: translateY(0);
+        }
+
+        .modal__close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            color: #666;
+            transition: color 0.3s ease;
+        }
+
+        .modal__close:hover {
+            color: #333;
+        }
+
+        .modal__form {
+            margin-top: 1.5rem;
+        }
+
+        .modal__input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .modal__input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .modal__submit {
+            width: 100%;
+            padding: 0.75rem;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .modal__submit:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(243, 156, 18, 0.2);
+        }
+
+        .modal__switch {
+            text-align: center;
+            margin-top: 1rem;
+            color: #666;
+        }
+
+        .modal__link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .modal__link:hover {
+            color: var(--secondary);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(20px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        .hero-content {
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .nav-item {
+            animation: slideIn 0.5s ease-out backwards;
+        }
+
+        .nav-item:nth-child(1) { animation-delay: 0.1s; }
+        .nav-item:nth-child(2) { animation-delay: 0.2s; }
+        .nav-item:nth-child(3) { animation-delay: 0.3s; }
+        .nav-item:nth-child(4) { animation-delay: 0.4s; }
+        .nav-item:nth-child(5) { animation-delay: 0.5s; }
+        .nav-item:nth-child(6) { animation-delay: 0.6s; }
+
+        /* Improve mobile touch targets */
+        @media (max-width: 768px) {
+            .mobile-touch-target {
+                min-height: 44px;
+                min-width: 44px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body class="page">
+    <header class="fixed top-0 left-0 right-0 bg-white shadow-sm z-50">
+        <nav class="container mx-auto px-4 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <a href="/" class="text-2xl font-bold text-gray-800 hover:text-primary transition-colors">
+                    God of Prompt
+                </a>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden lg:flex items-center space-x-10">
+                    <a href="/" class="nav-item text-gray-600 hover:text-primary font-medium transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 hover:after:w-full after:h-0.5 after:bg-primary after:transition-all px-1">Home</a>
+                    <a href="/prompt-library" class="nav-item text-gray-600 hover:text-primary font-medium transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 hover:after:w-full after:h-0.5 after:bg-primary after:transition-all px-1">Library</a>
+                    <a href="/products" class="nav-item text-gray-600 hover:text-primary font-medium transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 hover:after:w-full after:h-0.5 after:bg-primary after:transition-all px-1">Products</a>
+                    <a href="/pricing" class="nav-item text-gray-600 hover:text-primary font-medium transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 hover:after:w-full after:h-0.5 after:bg-primary after:transition-all px-1">Pricing</a>
+                    <a href="/contact" class="nav-item text-gray-600 hover:text-primary font-medium transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 hover:after:w-full after:h-0.5 after:bg-primary after:transition-all px-1">Contact</a>
+                    <a href="/blog" class="nav-item text-gray-600 hover:text-primary font-medium transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 hover:after:w-full after:h-0.5 after:bg-primary after:transition-all px-1">Blog</a>
+                </div>
+
+                <!-- Auth Buttons -->
+                <div class="hidden lg:flex items-center space-x-4">
+                    <button 
+                        onclick="openModal('loginModal')" 
+                        class="auth-button px-6 py-2.5 text-primary font-semibold border-2 border-primary rounded-lg hover:bg-primary/10 transition-all duration-300"
+                    >
+                        Log In
+                    </button>
+                    <button 
+                        onclick="openModal('signupModal')" 
+                        class="auth-button px-6 py-2.5 bg-gradient-to-r from-primary to-secondary text-white font-semibold rounded-lg hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
+                    >
+                        Sign Up
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button class="lg:hidden p-2.5 text-gray-600 hover:text-primary hover:bg-gray-100 active:bg-gray-200 rounded-lg transition-all mobile-touch-target" onclick="toggleMobileMenu()" aria-label="Toggle menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="hidden lg:hidden absolute top-20 left-0 right-0 bg-white shadow-lg rounded-b-xl transform transition-all duration-300 ease-in-out opacity-0 scale-95">
+                <div class="p-4 space-y-2">
+                    <a href="/" class="nav-item mobile-touch-target block px-4 py-3 text-gray-600 hover:text-primary hover:bg-gray-50 rounded-lg transition-colors">Home</a>
+                    <a href="/prompt-library" class="nav-item mobile-touch-target block px-4 py-3 text-gray-600 hover:text-primary hover:bg-gray-50 rounded-lg transition-colors">Library</a>
+                    <a href="/products" class="nav-item mobile-touch-target block px-4 py-3 text-gray-600 hover:text-primary hover:bg-gray-50 rounded-lg transition-colors">Products</a>
+                    <a href="/pricing" class="nav-item mobile-touch-target block px-4 py-3 text-gray-600 hover:text-primary hover:bg-gray-50 rounded-lg transition-colors">Pricing</a>
+                    <a href="/contact" class="nav-item mobile-touch-target block px-4 py-3 text-gray-600 hover:text-primary hover:bg-gray-50 rounded-lg transition-colors">Contact</a>
+                    <a href="/blog" class="nav-item mobile-touch-target block px-4 py-3 text-gray-600 hover:text-primary hover:bg-gray-50 rounded-lg transition-colors">Blog</a>
+                </div>
+                <div class="p-4 border-t border-gray-100 space-y-3">
+                    <button 
+                        onclick="openModal('loginModal')" 
+                        class="auth-button w-full px-4 py-2.5 text-primary font-semibold border-2 border-primary rounded-lg hover:bg-primary/10 transition-all duration-300"
+                    >
+                        Log In
+                    </button>
+                    <button 
+                        onclick="openModal('signupModal')" 
+                        class="auth-button w-full px-4 py-2.5 bg-gradient-to-r from-primary to-secondary text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300"
+                    >
+                        Sign Up
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Spacer for Fixed Header -->
+    <div class="h-20"></div>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="relative bg-gradient-to-r from-gray-900 to-gray-800 py-20 lg:py-28">
+            <!-- Orange Line at Bottom -->
+            <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-primary to-secondary"></div>
+            
+            <div class="container mx-auto px-4 lg:px-8 text-center">
+                <!-- Search Bar -->
+                <div class="max-w-2xl mx-auto mb-16">
+                    <div class="flex flex-col md:flex-row items-center bg-white/10 rounded-full p-1.5 md:p-1">
+                        <div class="relative w-full">
+                            <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                                <svg class="w-5 h-5 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                                </svg>
+                            </div>
+                            <input type="search" 
+                                   placeholder="Search prompts..." 
+                                   class="w-full bg-transparent pl-12 pr-6 py-3.5 text-white placeholder-white/60 focus:outline-none focus:bg-white/[0.15] transition-colors rounded-full"
+                            />
+                        </div>
+                        <button 
+                            class="w-full md:w-auto mt-2 md:mt-0 px-8 py-3.5 bg-gradient-to-r from-primary to-secondary text-white font-semibold rounded-full hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2 focus:ring-offset-gray-900 transition-all duration-300 flex items-center justify-center gap-2 group"
+                            aria-label="Search prompts"
+                        >
+                            <span>Search</span>
+                            <svg class="w-5 h-5 transform transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Hero Content -->
+                <div class="hero-content">
+                    <h1 class="text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-6 leading-tight">
+                        The Biggest AI Prompt Library
+                    </h1>
+                    <h2 class="text-xl lg:text-2xl font-medium text-white/90 mb-8">
+                        by God of Prompt
+                    </h2>
+                    <p class="text-lg text-white/80 max-w-2xl mx-auto leading-relaxed">
+                        Discover the best AI prompts for ChatGPT & Midjourney designed to supercharge your business and boost your productivity.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Prompt Library Categories -->
+        <section class="categories py-20 bg-white">
+            <div class="container mx-auto px-4 lg:px-8">
+                <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 text-center mb-12">
+                    Prompt Library Categories
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Category Cards -->
+                    <!-- ... Category cards content ... -->
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq py-20 bg-gray-50">
+            <div class="container mx-auto px-4 lg:px-8">
+                <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 text-center mb-12">
+                    Frequently Asked Questions
+                </h2>
+                <div class="max-w-3xl mx-auto space-y-6">
+                    <!-- FAQ Item -->
+                    <div class="faq__item bg-white rounded-xl shadow-sm">
+                        <button class="faq__question w-full text-left px-6 py-4 flex items-center justify-between focus:outline-none" onclick="toggleFAQ(this)">
+                            <span class="text-lg font-medium">What is God of Prompt?</span>
+                            <svg class="faq__icon w-5 h-5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="faq__answer hidden px-6 pb-4 text-gray-600">
+                            God of Prompt is the largest curated library of AI prompts for ChatGPT and Midjourney. We help businesses and individuals maximize their productivity with optimized prompts for various use cases.
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item -->
+                    <div class="faq__item bg-white rounded-xl shadow-sm">
+                        <button class="faq__question w-full text-left px-6 py-4 flex items-center justify-between focus:outline-none" onclick="toggleFAQ(this)">
+                            <span class="text-lg font-medium">How do I use the prompts?</span>
+                            <svg class="faq__icon w-5 h-5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="faq__answer hidden px-6 pb-4 text-gray-600">
+                            Simply copy the prompt you want to use and paste it into ChatGPT or Midjourney. Each prompt comes with detailed instructions and examples to help you get the best results.
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item -->
+                    <div class="faq__item bg-white rounded-xl shadow-sm">
+                        <button class="faq__question w-full text-left px-6 py-4 flex items-center justify-between focus:outline-none" onclick="toggleFAQ(this)">
+                            <span class="text-lg font-medium">Are the prompts regularly updated?</span>
+                            <svg class="faq__icon w-5 h-5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="faq__answer hidden px-6 pb-4 text-gray-600">
+                            Yes, we continuously update our prompt library to ensure optimal performance with the latest AI model versions. Our team regularly tests and optimizes prompts based on user feedback.
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item -->
+                    <div class="faq__item bg-white rounded-xl shadow-sm">
+                        <button class="faq__question w-full text-left px-6 py-4 flex items-center justify-between focus:outline-none" onclick="toggleFAQ(this)">
+                            <span class="text-lg font-medium">Do you offer custom prompts?</span>
+                            <svg class="faq__icon w-5 h-5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="faq__answer hidden px-6 pb-4 text-gray-600">
+                            Yes, we offer custom prompt engineering services for businesses with specific needs. Contact us to discuss your requirements and get a tailored solution.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <script>
+            function toggleFAQ(button) {
+                const item = button.closest('.faq__item');
+                const answer = item.querySelector('.faq__answer');
+                const icon = item.querySelector('.faq__icon');
+                
+                // Close other FAQs
+                document.querySelectorAll('.faq__answer').forEach(a => {
+                    if (a !== answer && !a.classList.contains('hidden')) {
+                        a.classList.add('hidden');
+                        a.closest('.faq__item').querySelector('.faq__icon').classList.remove('rotate-180');
+                    }
+                });
+
+                // Toggle current FAQ
+                answer.classList.toggle('hidden');
+                icon.classList.toggle('rotate-180');
+            }
+        </script>
+
+        <!-- Footer -->
+        <footer class="footer bg-gray-900 text-white py-16">
+            <div class="container mx-auto px-4 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+                    <!-- Company Info -->
+                    <div class="footer__company">
+                        <h3 class="footer__title text-xl font-bold mb-6">God of Prompt</h3>
+                        <p class="footer__description text-gray-400 mb-6">
+                            The largest AI prompt library helping businesses and individuals maximize their productivity.
+                        </p>
+                        <div class="footer__social flex space-x-4">
+                            <a href="#" class="footer__social-link text-gray-400 hover:text-white transition-colors">
+                                <i class="fab fa-twitter text-xl"></i>
+                            </a>
+                            <a href="#" class="footer__social-link text-gray-400 hover:text-white transition-colors">
+                                <i class="fab fa-linkedin text-xl"></i>
+                            </a>
+                            <a href="#" class="footer__social-link text-gray-400 hover:text-white transition-colors">
+                                <i class="fab fa-github text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Quick Links -->
+                    <div class="footer__links">
+                        <h3 class="footer__title text-lg font-semibold mb-6">Quick Links</h3>
+                        <ul class="footer__list space-y-3">
+                            <li><a href="/about" class="footer__link text-gray-400 hover:text-white transition-colors">About Us</a></li>
+                            <li><a href="/blog" class="footer__link text-gray-400 hover:text-white transition-colors">Blog</a></li>
+                            <li><a href="/pricing" class="footer__link text-gray-400 hover:text-white transition-colors">Pricing</a></li>
+                            <li><a href="/contact" class="footer__link text-gray-400 hover:text-white transition-colors">Contact</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Categories -->
+                    <div class="footer__categories">
+                        <h3 class="footer__title text-lg font-semibold mb-6">Categories</h3>
+                        <ul class="footer__list space-y-3">
+                            <li><a href="/categories/marketing" class="footer__link text-gray-400 hover:text-white transition-colors">Marketing & Sales</a></li>
+                            <li><a href="/categories/content" class="footer__link text-gray-400 hover:text-white transition-colors">Content Creation</a></li>
+                            <li><a href="/categories/development" class="footer__link text-gray-400 hover:text-white transition-colors">Development</a></li>
+                            <li><a href="/categories/business" class="footer__link text-gray-400 hover:text-white transition-colors">Business Strategy</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Newsletter -->
+                    <div class="footer__newsletter">
+                        <h3 class="footer__title text-lg font-semibold mb-6">Stay Updated</h3>
+                        <p class="footer__description text-gray-400 mb-4">
+                            Subscribe to our newsletter for the latest prompts and AI tips.
+                        </p>
+                        <form class="footer__form">
+                            <div class="flex">
+                                <input 
+                                    type="email" 
+                                    placeholder="Enter your email" 
+                                    class="footer__input w-full px-4 py-2 bg-gray-800 text-white rounded-l-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                                >
+                                <button 
+                                    type="submit" 
+                                    class="footer__button px-6 py-2 bg-primary text-white font-medium rounded-r-lg hover:bg-secondary transition-colors"
+                                >
+                                    Subscribe
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Bottom Bar -->
+                <div class="footer__bottom mt-12 pt-8 border-t border-gray-800">
+                    <div class="flex flex-col md:flex-row justify-between items-center">
+                        <p class="footer__copyright text-gray-400 text-sm">
+                            © 2024 God of Prompt. All rights reserved.
+                        </p>
+                        <div class="footer__legal mt-4 md:mt-0 flex space-x-6">
+                            <a href="/privacy" class="footer__link text-gray-400 hover:text-white text-sm transition-colors">Privacy Policy</a>
+                            <a href="/terms" class="footer__link text-gray-400 hover:text-white text-sm transition-colors">Terms of Service</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Login Modal -->
+        <div id="loginModal" class="modal">
+            <div class="modal__content">
+                <button class="modal__close" onclick="closeModal('loginModal')">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+                <h2 class="text-2xl font-bold text-gray-900 mb-2">Welcome Back</h2>
+                <p class="text-gray-600 mb-6">Log in to access your prompts</p>
+                <form class="modal__form">
+                    <input type="email" placeholder="Email address" class="modal__input" required>
+                    <input type="password" placeholder="Password" class="modal__input" required>
+                    <button type="submit" class="modal__submit">Log In</button>
+                </form>
+                <p class="modal__switch">
+                    Don't have an account? 
+                    <a href="#" class="modal__link" onclick="switchModal('loginModal', 'signupModal')">Sign up</a>
+                </p>
+            </div>
+        </div>
+
+        <!-- Signup Modal -->
+        <div id="signupModal" class="modal">
+            <div class="modal__content">
+                <button class="modal__close" onclick="closeModal('signupModal')">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+                <h2 class="text-2xl font-bold text-gray-900 mb-2">Create Account</h2>
+                <p class="text-gray-600 mb-6">Join our community of prompt engineers</p>
+                <form class="modal__form">
+                    <input type="text" placeholder="Full name" class="modal__input" required>
+                    <input type="email" placeholder="Email address" class="modal__input" required>
+                    <input type="password" placeholder="Password" class="modal__input" required>
+                    <button type="submit" class="modal__submit">Sign Up</button>
+                </form>
+                <p class="modal__switch">
+                    Already have an account? 
+                    <a href="#" class="modal__link" onclick="switchModal('signupModal', 'loginModal')">Log in</a>
+                </p>
+            </div>
+        </div>
+
+        <script>
+            function openModal(modalId) {
+                const modal = document.getElementById(modalId);
+                document.body.style.overflow = 'hidden';
+                modal.classList.add('is-active');
+            }
+
+            function closeModal(modalId) {
+                const modal = document.getElementById(modalId);
+                document.body.style.overflow = '';
+                modal.classList.remove('is-active');
+            }
+
+            function switchModal(closeId, openId) {
+                closeModal(closeId);
+                setTimeout(() => openModal(openId), 300);
+            }
+
+            // Close modal when clicking outside
+            window.onclick = function(event) {
+                if (event.target.classList.contains('modal')) {
+                    closeModal(event.target.id);
+                }
+            }
+        </script>
+                    <!-- Category Card -->
+                    <div class="category-card bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow p-6 border border-gray-100">
+                        <div class="category-card__icon mb-4 text-primary">
+                            <i class="fas fa-bullhorn text-3xl"></i>
+                        </div>
+                        <h3 class="category-card__title text-xl font-semibold mb-3">Marketing & Sales</h3>
+                        <p class="category-card__description text-gray-600 mb-4">
+                            Boost your marketing campaigns and sales conversions with AI-powered prompts.
+                        </p>
+                        <a href="/categories/marketing" class="category-card__link inline-flex items-center text-primary font-medium hover:underline">
+                            Explore prompts
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <!-- Category Card -->
+                    <div class="category-card bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow p-6 border border-gray-100">
+                        <div class="category-card__icon mb-4 text-primary">
+                            <i class="fas fa-pen-fancy text-3xl"></i>
+                        </div>
+                        <h3 class="category-card__title text-xl font-semibold mb-3">Content Creation</h3>
+                        <p class="category-card__description text-gray-600 mb-4">
+                            Create engaging content faster with our curated content writing prompts.
+                        </p>
+                        <a href="/categories/content" class="category-card__link inline-flex items-center text-primary font-medium hover:underline">
+                            Explore prompts
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <!-- Category Card -->
+                    <div class="category-card bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow p-6 border border-gray-100">
+                        <div class="category-card__icon mb-4 text-primary">
+                            <i class="fas fa-image text-3xl"></i>
+                        </div>
+                        <h3 class="category-card__title text-xl font-semibold mb-3">Image Generation</h3>
+                        <p class="category-card__description text-gray-600 mb-4">
+                            Generate stunning visuals with our Midjourney-optimized prompts.
+                        </p>
+                        <a href="/categories/images" class="category-card__link inline-flex items-center text-primary font-medium hover:underline">
+                            Explore prompts
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <!-- Category Card -->
+                    <div class="category-card bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow p-6 border border-gray-100">
+                        <div class="category-card__icon mb-4 text-primary">
+                            <i class="fas fa-code text-3xl"></i>
+                        </div>
+                        <h3 class="category-card__title text-xl font-semibold mb-3">Development</h3>
+                        <p class="category-card__description text-gray-600 mb-4">
+                            Speed up your coding workflow with AI-assisted development prompts.
+                        </p>
+                        <a href="/categories/development" class="category-card__link inline-flex items-center text-primary font-medium hover:underline">
+                            Explore prompts
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <!-- Category Card -->
+                    <div class="category-card bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow p-6 border border-gray-100">
+                        <div class="category-card__icon mb-4 text-primary">
+                            <i class="fas fa-chart-line text-3xl"></i>
+                        </div>
+                        <h3 class="category-card__title text-xl font-semibold mb-3">Business & Strategy</h3>
+                        <p class="category-card__description text-gray-600 mb-4">
+                            Enhance your business planning and strategy with AI insights.
+                        </p>
+                        <a href="/categories/business" class="category-card__link inline-flex items-center text-primary font-medium hover:underline">
+                            Explore prompts
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <!-- Category Card -->
+                    <div class="category-card bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow p-6 border border-gray-100">
+                        <div class="category-card__icon mb-4 text-primary">
+                            <i class="fas fa-brain text-3xl"></i>
+                        </div>
+                        <h3 class="category-card__title text-xl font-semibold mb-3">AI & Machine Learning</h3>
+                        <p class="category-card__description text-gray-600 mb-4">
+                            Master AI tools and techniques with specialized prompts.
+                        </p>
+                        <a href="/categories/ai" class="category-card__link inline-flex items-center text-primary font-medium hover:underline">
+                            Explore prompts
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    <script>
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            if (mobileMenu.classList.contains('hidden')) {
+                // Show menu
+                mobileMenu.classList.remove('hidden');
+                requestAnimationFrame(() => {
+                    mobileMenu.classList.remove('opacity-0', 'scale-95');
+                    mobileMenu.classList.add('opacity-100', 'scale-100');
+                });
+            } else {
+                // Hide menu
+                mobileMenu.classList.add('opacity-0', 'scale-95');
+                mobileMenu.classList.remove('opacity-100', 'scale-100');
+                setTimeout(() => {
+                    mobileMenu.classList.add('hidden');
+                }, 300);
+            }
+        }
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const menuButton = document.querySelector('.lg\\:hidden');
+            
+            if (!mobileMenu.contains(event.target) && !menuButton.contains(event.target) && !mobileMenu.classList.contains('hidden')) {
+                toggleMobileMenu();
+            }
+        });
+    </script>
+</body>
+</html>
